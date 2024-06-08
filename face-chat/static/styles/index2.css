@@ -1,0 +1,98 @@
+.user-post{
+    width: 100%;
+    height: auto;
+    margin-bottom: 35px;
+}
+#user-upload, .user-upload-img{
+    height: 400px;
+    width: 100%;
+}
+
+.like-commant-share-container{
+    height: 100px;
+    width: 100%;
+    margin: 0 auto;
+}
+
+.fa-like-icon{
+    font-family: sans-serif,Arial;
+    font-weight: normal;
+    font-size: 18px;
+}
+.fa-like{
+    font-family: Arial, Helvetica, sans-serif;
+    font-size: 14px;
+}
+.user-coner-img-container{
+    height: auto;
+    margin-top: -30px;
+}
+.coner-img{
+    width: 40px;
+    height: 40px;
+    border-radius: 50%;
+}
+.fa-ellipsis-vertical{
+    margin-top: -50px;
+}
+
+
+.profile-container{
+    height: auto;
+    display: grid;
+    grid-template-areas:
+    "set-profile set-profile"
+    "username username"
+    "follow follow"
+    "bio bio"
+    "posts posts"
+    ;
+    width: auto;
+    gap: 10px;
+
+}
+
+.set-profile{
+    grid-area: set-profile;
+    display: flex;
+    justify-content: center;
+}
+.set-username{
+    grid-area: username;
+    display: flex;
+    justify-content: center;
+}
+.set-follow-following{
+    grid-area: follow;
+    display: flex;
+    justify-content: center;
+}
+.set-bio{
+    grid-area: bio;
+    padding: 10px;
+
+}
+.set-posts{
+    grid-area: posts;
+}
+
+.set-profile img{
+    width: 180px;
+    height: 180px;
+    border-radius: 50%;
+}
+.count-follow{
+    margin: 20px;
+}
+
+.set-posts .posts img{
+    width: 100px;
+    height: 100px;
+    border-radius: 5px;
+}
+
+@media screen and (max-width:1470px){
+    .box3{
+        display: none;
+    }
+}

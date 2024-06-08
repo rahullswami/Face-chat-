@@ -1,0 +1,30 @@
+.form-box{
+    width: 500px;
+    height: 500px;
+}
+
+.mobile-form{
+    display: none;
+}
+
+.desktop-form{
+    display: block;
+}
+
+.font-justify{
+    text-align: justify;
+}
+
+.font-size{
+    font-size: 25px;
+}
+
+
+@media screen and (max-width:1000px) {
+    .mobile-form{
+        display: block;
+    }
+    .desktop-form{
+        display: none;
+    }
+}

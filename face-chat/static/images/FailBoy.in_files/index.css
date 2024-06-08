@@ -1,0 +1,38 @@
+.w-100{
+    height: 650px;
+    background-size: cover; 
+}
+
+.d-none{
+    background-color: #11111186;
+    border-radius: 1rem;
+}
+
+.email{
+    height: 40px;
+}
+.email-btn{
+    height: 40px;
+}
+.row{
+    height: 300px;
+}
+.bi{
+    color: white;
+    background-color: black;
+}
+
+.section-container{
+    height: 100%;
+}
+
+.form-control{
+    height: 40px;
+}
+
+.btn-control{
+    height: 40px;
+}
+.footer-container{
+    height: 100%;
+}

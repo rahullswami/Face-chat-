@@ -1,0 +1,191 @@
+.w-100{
+    height: 650px;
+    background-size: cover; 
+}
+
+.d-none{
+    background-color: #11111186;
+    border-radius: 1rem;
+}
+
+.email{
+    height: 40px;
+}
+.email-btn{
+    height: 40px;
+}
+.row{
+    height: 300px;
+}
+.bi{
+    color: white;
+    background-color: black;
+}
+
+.section-container{
+    height: 100%;
+}
+
+.footer-control{
+    height: 200px;
+}
+.form-control{
+    height: 40px;
+}
+
+.btn-control{
+    height: 40px;
+}
+.footer-container{
+    height: 100%;
+}
+.color{
+    background-color: #212529;
+    color: #fff;
+    font-size: 18px;
+}
+.color:hover{
+    color: green;
+}
+.outer-logo{
+    display: none;
+}
+
+.font-size{
+    font-size: 25px;
+}
+.float-side{
+    width: 550px;
+    height: 550px;
+}
+
+
+
+.blur-container{
+    width: 100%;
+    height: 100%;
+    padding-top: 80px;
+    position: relative;
+    display: none;
+    color: #0e3b9c;
+}
+.img{
+    width: 100%;
+    height: 500px;
+}
+
+.show-mobile{
+    width: 100%;
+    height: 100%;
+    backdrop-filter: blur(4px);
+    -webkit-backdrop-filter: blur(4px);
+    position: absolute;
+    top: 0;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+
+.background-tansprant{
+    background-color: rgba(0, 0, 0, 0.575);
+}
+
+.pointer{
+    cursor: pointer;
+}
+
+.fist-main-container{
+    height: 400px;
+}
+.z-index{
+    z-index: 1000;
+    width: 100%;
+    margin-top: 0;
+}
+
+.container-album-fill-the-space{
+    height: 1200px;
+}
+
+.ablum-imaages{
+    width: 100%;
+    height: 300px;
+}
+
+
+.add-ai{
+    height: 700px;
+}
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+@media screen and (max-width:992px) {
+    .image-slider{
+        display: none;
+    }
+    .outer-logo{
+        display: block;
+    }
+
+    .mobile-screen{
+        display: none;
+    }
+    .card:hover .mobile-screen{
+        display: block;
+    }
+    .fist-main-container{
+        margin-bottom: 350px;
+    }
+    .float-side{
+        width: 200px;
+        height: 200px;
+    }
+    .blur-container{
+        display: block;
+    }
+
+    .fist-main-container-d-none{
+        height: 400px;
+    }
+
+    .container-album-fill-the-space{
+        height: 1500px;
+    }
+    .add-ai{
+        height: 900px;
+    }
+    
+}
+
+@media screen and (max-width:750px) {
+    .container-album-fill-the-space{
+        height: 2300px;
+    }
+    .add-ai{
+        height: 900px;
+    }
+    
+}
+
+@media screen and (max-width:550px) {
+    .container-album-fill-the-space{
+        height: 4000px;
+    }
+    .add-ai{
+        height: 900px;
+    }
+    
+}
+

@@ -1,0 +1,1343 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>Face-Chat.in | Home</title>
+  <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/css/bootstrap.min.css" rel="stylesheet"
+    integrity="sha384-QWTKZyjpPEjISv5WaRU9OFeRpok6YctnYmDr5pNlyT2bRjXh0JMhjY6hW+ALEwIH" crossorigin="anonymous">
+  <link rel="stylesheet" href="/static/styles/index.css">
+  <!-- icon for fa fa cdn link  -->
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.2/css/all.min.css"
+    integrity="sha512-SnH5WK+bZxgPHs44uWIX+LLJAJ9/2PkPKZ5QiAj6Ta86w+fsb2TkcmfRyVX3pBnMFcV7oQPJkl9QevSCWr3W6A=="
+    crossorigin="anonymous" referrerpolicy="no-referrer" />
+  <link rel="icon" href="/static/images/logo.png">
+  <link rel="stylesheet" href="/static/styles/index2.css">
+  <style>
+    .js-after-login {
+      display: none;
+    }
+
+    .green-color {
+      color: green;
+    }
+
+    .search-bar {
+      width: 100%;
+    }
+
+    .post-content {
+      height: 70vh;
+      overflow-x: hidden;
+      margin-bottom: 200px;
+    }
+
+    .overflow-container {
+      height: auto;
+    }
+
+    body::-webkit-scrollbar {
+      display: none;
+      /* Hide scrollbar for Chrome, Safari, and Edge */
+    }
+
+    .container-box {
+      display: grid;
+      grid-template-areas:
+        "box1 box1 box1"
+        "box2 box3 box4"
+      ;
+      width: 100%;
+      height: 100vh;
+    }
+
+    .box1 {
+      grid-area: box1;
+    }
+
+    .box2 {
+      grid-area: box2;
+      width: 100vh;
+      padding: 30px;
+    }
+
+    .box3 {
+      grid-area: box3;
+      overflow-x: hidden;
+      height: 800px;
+    }
+
+
+    .box4 {
+      grid-area: box4;
+      height: 800px;
+      width: 400px;
+    }
+
+    .chat-box {
+      height: auto;
+    }
+
+    .person-chat {
+      height: 70px;
+      margin: 20px;
+      border-radius: 14px;
+      display: flex;
+      justify-content: space-around;
+      align-items: center;
+      border: 1px solid rebeccapurple;
+      width: 475px;
+      cursor: pointer;
+    }
+
+    .person-chat-modal {
+      height: auto;
+      border-radius: 14px;
+      display: flex;
+      justify-content: space-around;
+      align-items: center;
+      border: 1px solid rebeccapurple;
+      width: 100%;
+      cursor: pointer;
+      margin-bottom: 20px;
+    }
+
+    .messages {
+      width: 479px;
+      margin-top: -50px;
+    }
+
+    .person-img {
+      width: 50px;
+      height: 50px;
+      border-radius: 50%;
+    }
+
+    .user-chat-details {
+      margin-top: 10px;
+      margin-left: -20px;
+    }
+
+    .green-tick {
+      font-size: 68px;
+      margin-top: -40px;
+      color: rgb(11, 233, 11);
+    }
+
+    .box-btn {
+      display: flex;
+      flex-direction: column;
+      gap: 10px;
+      justify-content: center;
+      align-items: center;
+      height: 800px;
+    }
+
+    .media-btn {
+      width: 150px;
+      height: 70px;
+    }
+
+    .border-chat {
+      border: 1px solid rebeccapurple;
+    }
+
+    .rahul-chat{
+      height: 700px;
+      position: relative;
+    }
+    .message-box{
+      height: 50px;
+      position: absolute;
+      bottom: 0;
+      width: 100%;
+    }
+    .message-form{
+      height: 50px;
+      width: 100%;
+    }
+
+    .chat-container{
+      width: 100%;
+      height: 650px;
+      background-color: aliceblue;
+      padding: 30px;
+    }
+    .start-chat{
+      width: auto;
+      height: auto;
+      background-color: #fff;
+      border-radius: 20px;
+      margin-bottom: 10px;
+    }
+
+    .feature-btn{
+      display: none;
+    }
+    .box2-after-box{
+      display: none;
+    }
+    
+    .boxs-2{
+      height: auto;
+    }
+
+    @media screen and (max-width:1470px){
+    .box3{
+        display: none;
+    }
+    .feature-btn{
+      display: block;
+    }
+    .box2{
+      width: 100%;
+    }
+}
+
+@media screen and (max-width:1200px){
+    .box1{
+        display: none;
+    }
+    
+    .box2{
+      width: 100%;
+    }
+    .user-upload-img-container{
+      padding: 0;
+    }
+
+    .box4{
+      display: none;
+    }
+}
+
+@media screen and (max-width:570px){
+     .box2{
+      display: none;
+     }
+     .box2-after-box{
+      display: block;
+     }
+     .post-content{
+      height: 90vh;
+      padding-bottom: 200px;
+     }
+   
+}
+
+  </style>
+</head>
+
+<body>
+  <div class="main-containers position-fixed">
+    <nav class="navbar navbar-expand-lg navbar-light bg-light position-fixed z-index"
+      aria-label="Thirteenth navbar example">
+      <!-- nav start -->
+      <div class="container-fluid">
+        <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarsExample11"
+          aria-controls="navbarsExample11" aria-expanded="false" aria-label="Toggle navigation">
+          <span class="navbar-toggler-icon"></span>
+        </button>
+        <h1 class="navbar-brand outer-logo py-2">𝙁𝙖𝙘𝙚-𝙘𝙝𝙖𝙩</h1>
+        <div class="feature-btn">
+          <button class="btn btn pointer" data-bs-toggle="modal" data-bs-target="#staticBackdrop2"><i class="fa-solid fa-comment-dots font-size"></i></button>
+          <button class="btn btn pointer"><i class="fa-solid fa-clapperboard font-size"></i></button>
+          <button class="btn btn pointer"><i class="fa-solid fa-camera-retro font-size"></i></button>
+          <button class="btn btn pointer"><i class="fa-solid fa-user-plus font-size"></i></button>
+         </div>
+         <div class="user-profile">
+          <img src="/static/images/rahul-profile-img.png" alt="user" class="coner-img pointer" data-bs-toggle="modal" data-bs-target="#staticBackdrop3">
+         </div>
+        <div class="collapse navbar-collapse d-lg-flex" id="navbarsExample11">
+          <a class="navbar-brand col-lg-3 me-0 mx-3" href="/" id="failboy">user</a>
+          <ul class="navbar-nav col-lg-6 justify-content-lg-center">
+            <li class="nav-item">
+              <a class="nav-link active" aria-current="page" href="/"><i class="fa-solid fa-house-user mx-1"></i><span>Home</span><!--Home--></a>
+            </li>
+            <li class="nav-item">
+              <a class="nav-link" href="/follow"><i class="fa-solid fa-user-plus mx-1"></i><span>Follow</span></a>
+            </li>
+            <li class="nav-item">
+              <a class="nav-link" href="/media"><i class="fa-solid fa-photo-film mx-1"></i><span>Media</span></a>
+            </li>
+            <li class="nav-item dropdown">
+              <a class="nav-link dropdown-toggle" href="" data-bs-toggle="dropdown" aria-expanded="false">More</a>
+              <ul class="dropdown-menu">
+                <li><a class="dropdown-item" href="/request"><i class="fa-regular fa-bell mx-1"></i><span>Requests</span></a></li>
+                <li><a class="dropdown-item" href="/profile"><i class="fa-solid fa-user mx-1"></i><span>Profile</span></a></li>
+                <li><a class="dropdown-item" href="/setting"><i class="fa-solid fa-gear mx-1"></i><span>Setting</span></a></li>
+              </ul>
+            </li>
+            <form class="d-flex my-2" role="search">
+              <input class="form-control me-2" type="search" name='search' placeholder="Search" aria-label="Search">
+              <button class="btn btn-outline-success" type="submit">Search</button>
+            </form>
+          </ul>
+          <div class="d-lg-flex col-lg-3 justify-content-lg-end">
+            <a href="/logout"><button type="button" class="btn color logout mx-3">
+                logout <span><i class="fa-solid fa-right-from-bracket"></i></span>
+              </button></a>
+          </div>
+        </div>
+      </div>
+    </nav>
+    <!-- nav end -->
+    <main class="main">
+      <div class="container-fluid left-div px-0 py-5 text-bg-light">
+        <div class="container-box">
+          <div class="box1">
+            <hr class="my-2">
+            <header class=" my-4 ">
+              <div class="alert alert-warning alert-dismissible fade show" role="alert">
+                <strong>Holy guacamole!</strong> You should check in on some of those fields below.
+                <button type="button" class="btn-close" data-bs-dismiss="alert" aria-label="Close"></button>
+              </div>
+            </header>
+          </div>
+          
+          <div class="box2">
+            <main class="container my-4 py-5 post-content"><!-- main section start -->
+             
+              <div class="row section-container d-flex justify-content-lg-center" data-masonry='{"percentPosition": true }'>
+                <div class="col-lg-8 col-lg-4 mb-4 pointer">
+                  <div class="card boxs-2 p-3">
+                   <div class="d-flex justify-content-lg-end my-2 ">
+                    <img src="/static/images/rahul-profile-img.png" alt="coner-img" class="coner-img mx-2 mb-3">
+                    <h5 class="card-title py-2 mx-2">Rahul Swami <strong>(He/She)</strong></h5>
+                   </div>
+                    <img src="/static/images/rahul-profile-img.png" width="200" height="300" alt="thms-01"
+                      class="bd-placeholder-img card-img-top">
+                    <div class="card-body mobile-screen">
+                      <p class="card-text">Artificial Intelligence (AI) is a branch of computer science that aims to create
+                        machines capable of intelligent behavior.</p>
+                    </div>
+                    <div class="like-commant-share-container px-5 d-flex justify-content-between align-items-center">
+                      <i class="fa-regular fa-heart font-size"></span>
+                        <div class="fa-like">11K</div>
+                      </i>
+                      <i class="fa-regular fa-comment font-size"></span>
+                        <div class="fa-like">543K</div>
+                      </i>
+                      <i class="fa-solid fa-repeat font-size"></span>
+                        <div class="fa-like">2K</div>
+                      </i>
+                      <i class="fa-regular fa-share-from-square font-size"></span>
+                        <div class="fa-like">1K</div>
+                      </i>
+                    </div>
+                  </div>
+                </div>
+                <div class="col-lg-8 col-lg-4 mb-4 pointer">
+                  <div class="card boxs-2 p-3">
+                    <div class="d-flex justify-content-lg-end my-2 ">
+                      <img src="https://img.freepik.com/free-photo/young-crazy-man-happy-expression_1194-5236.jpg" alt="coner-img" class="coner-img mx-2 mb-3">
+                      <h5 class="card-title py-2 mx-2">Robert <strong>(He/She)</strong></h5>
+                     </div>
+                    <img src="https://img.freepik.com/free-photo/young-crazy-man-happy-expression_1194-5236.jpg" width="200" height="300" alt="thms-01"
+                      class="bd-placeholder-img card-img-top">
+                    <div class="card-body mobile-screen">
+                      <h5 class="card-title">Navigating the Future: AI in Practice</h5>
+                      <p class="card-text">Artificial Intelligence (AI) is a field of computer science that focuses on creating
+                        machines capable of intelligent behavior.</p>
+                    </div>
+                    <div class="like-commant-share-container px-5 d-flex justify-content-between align-items-center">
+                      <i class="fa-regular fa-heart font-size"></span>
+                        <div class="fa-like">11K</div>
+                      </i>
+                      <i class="fa-regular fa-comment font-size"></span>
+                        <div class="fa-like">543K</div>
+                      </i>
+                      <i class="fa-solid fa-repeat font-size"></span>
+                        <div class="fa-like">2K</div>
+                      </i>
+                      <i class="fa-regular fa-share-from-square font-size"></span>
+                        <div class="fa-like">1K</div>
+                      </i>
+                    </div>
+                  </div>
+                </div>
+                <div class="col-lg-8 col-lg-4 mb-4 pointer">
+                  <div class="card boxs-2 p-3">
+                    <div class="d-flex justify-content-lg-end my-2 ">
+                      <img src="https://img.freepik.com/free-photo/young-crazy-man-happy-expression_1194-5236.jpg" alt="coner-img" class="coner-img mx-2 mb-3">
+                      <h5 class="card-title py-2 mx-2">Robert <strong>(He/She)</strong></h5>
+                     </div>
+                    <img src="https://img.freepik.com/free-photo/crazy-man-happy-expression_1194-1314.jpg?size=626&ext=jpg&ga=GA1.1.553209589.1713225600&semt=ais" width="200" height="300" alt="thms-01"
+                      class="bd-placeholder-img card-img-top">
+                    <div class="card-body mobile-screen">
+                      <h5 class="card-title">AI: From Theory to Reality</h5>
+                      <p class="card-text">Artificial Intelligence (AI) is a branch of computer science dedicated to creating
+                        systems that can perform tasks requiring human intelligence. It encompasses machine learning, where
+                        algorithms learn from data to make decisions or predictions.</p>
+                    </div>
+                    <div class="like-commant-share-container px-5 d-flex justify-content-between align-items-center">
+                      <i class="fa-regular fa-heart font-size"></span>
+                        <div class="fa-like">11K</div>
+                      </i>
+                      <i class="fa-regular fa-comment font-size"></span>
+                        <div class="fa-like">543K</div>
+                      </i>
+                      <i class="fa-solid fa-repeat font-size"></span>
+                        <div class="fa-like">2K</div>
+                      </i>
+                      <i class="fa-regular fa-share-from-square font-size"></span>
+                        <div class="fa-like">1K</div>
+                      </i>
+                    </div>
+                  </div>
+                </div>
+                <div class="col-lg-8 col-lg-4 mb-4 pointer">
+                  <div class="card boxs-2 p-3">
+                    <div class="d-flex justify-content-lg-end my-2 ">
+                      <img src="https://img.freepik.com/premium-photo/young-caucasian-man-outdoors-park-focusing-face-framing-symbol_1368-328283.jpg?size=626&ext=jpg&ga=GA1.1.1412446893.1705104000&semt=ais" alt="coner-img" class="coner-img mx-2 mb-3">
+                      <h5 class="card-title py-2 mx-2">Vinod <strong>(He/She)</strong></h5>
+                     </div>
+                    <img src="https://img.freepik.com/premium-photo/young-caucasian-man-outdoors-park-focusing-face-framing-symbol_1368-328283.jpg?size=626&ext=jpg&ga=GA1.1.1412446893.1705104000&semt=ais" width="200" height="300" alt="thms-01"
+                      class="bd-placeholder-img card-img-top">
+                    <div class="card-body mobile-screen">
+                      <h5 class="card-title">AI Unleashed: Transforming Industries</h5>
+                      <p class="card-text">Artificial Intelligence (AI) is a field of computer science focused on developing
+                        machines and systems that can perform tasks requiring human-like intelligence. It includes various
+                        subfields such as machine learning, natural language processing, and computer vision.</p>
+                    </div>
+                    <div class="like-commant-share-container px-5 d-flex justify-content-between align-items-center">
+                      <i class="fa-regular fa-heart font-size"></span>
+                        <div class="fa-like">11K</div>
+                      </i>
+                      <i class="fa-regular fa-comment font-size"></span>
+                        <div class="fa-like">543K</div>
+                      </i>
+                      <i class="fa-solid fa-repeat font-size"></span>
+                        <div class="fa-like">2K</div>
+                      </i>
+                      <i class="fa-regular fa-share-from-square font-size"></span>
+                        <div class="fa-like">1K</div>
+                      </i>
+                    </div>
+                  </div>
+                </div>
+                <div class="col-lg-8 col-lg-4 mb-4 pointer">
+                  <div class="card boxs-2 p-3">
+                    <div class="d-flex justify-content-lg-end my-2 ">
+                      <img src="https://img.freepik.com/free-photo/happy-cheerful-professional-choosing-you_74855-2843.jpg" alt="coner-img" class="coner-img mx-2 mb-3">
+                      <h5 class="card-title py-2 mx-2">Burlat <strong>(He/She)</strong></h5>
+                     </div>
+                    <img src="https://img.freepik.com/free-photo/happy-cheerful-professional-choosing-you_74855-2843.jpg" width="200" height="300" alt="thms-01"
+                      class="bd-placeholder-img card-img-top">
+                    <div class="card-body mobile-screen">
+                      <h5 class="card-title">The AI Revolution: Impact and Implications</h5>
+                      <p class="card-text">Artificial Intelligence (AI) is the branch of computer science that aims to create
+                        machines capable of intelligent behavior.</p>
+                    </div>
+                    <div class="like-commant-share-container px-5 d-flex justify-content-between align-items-center">
+                      <i class="fa-regular fa-heart font-size"></span>
+                        <div class="fa-like">11K</div>
+                      </i>
+                      <i class="fa-regular fa-comment font-size"></span>
+                        <div class="fa-like">543K</div>
+                      </i>
+                      <i class="fa-solid fa-repeat font-size"></span>
+                        <div class="fa-like">2K</div>
+                      </i>
+                      <i class="fa-regular fa-share-from-square font-size"></span>
+                        <div class="fa-like">1K</div>
+                      </i>
+                    </div>
+                  </div>
+                </div>
+                <div class="col-lg-8 col-lg-4 mb-4 pointer">
+                  <div class="card boxs-2 p-3">
+                    <div class="d-flex justify-content-lg-end my-2 ">
+                      <img src="https://c8.alamy.com/comp/H27AEB/happy-doctor-putting-his-big-finger-up-H27AEB.jpg" alt="coner-img" class="coner-img mx-2 mb-3">
+                      <h5 class="card-title py-2 mx-2">Sunder <strong>(He/She)</strong></h5>
+                     </div>
+                    <img src="https://c8.alamy.com/comp/H27AEB/happy-doctor-putting-his-big-finger-up-H27AEB.jpg" width="200" height="300" alt="thms-01"
+                      class="bd-placeholder-img card-img-top">
+                    <div class="card-body mobile-screen">
+                      <h5 class="card-title">AI for Tomorrow: Innovations and Ethics</h5>
+                      <p class="card-text">Artificial Intelligence (AI) is a field of computer science focused on developing
+                        systems that can perform tasks that typically require human intelligence. It encompasses machine learning,
+                        which allows machines to learn from data and improve their performance over time.</p>
+                    </div>
+                    <div class="like-commant-share-container px-5 d-flex justify-content-between align-items-center">
+                      <i class="fa-regular fa-heart font-size"></span>
+                        <div class="fa-like">11K</div>
+                      </i>
+                      <i class="fa-regular fa-comment font-size"></span>
+                        <div class="fa-like">543K</div>
+                      </i>
+                      <i class="fa-solid fa-repeat font-size"></span>
+                        <div class="fa-like">2K</div>
+                      </i>
+                      <i class="fa-regular fa-share-from-square font-size"></span>
+                        <div class="fa-like">1K</div>
+                      </i>
+                    </div>
+                  </div>
+                </div>
+                <div class="col-lg-8 col-lg-4 mb-4 pointer">
+                  <div class="card boxs-2 p-3">
+                    <div class="d-flex justify-content-lg-end my-2 ">
+                      <img src="https://c8.alamy.com/comp/H27AEB/happy-doctor-putting-his-big-finger-up-H27AEB.jpg" alt="coner-img" class="coner-img mx-2 mb-3">
+                      <h5 class="card-title py-2 mx-2">Sunder <strong>(He/She)</strong></h5>
+                     </div>
+                    <img src="https://wallpapers.com/images/featured/random-people-nr23d7xjroka0x1y.jpg" width="200" height="300" alt="thms-01"
+                      class="bd-placeholder-img card-img-top">
+                    <div class="card-body mobile-screen">
+                      <h5 class="card-title">AI at the Crossroads: Challenges and Opportunities</h5>
+                      <p class="card-text">Artificial Intelligence (AI) is a rapidly evolving field of computer science that seeks
+                        to develop machines capable of performing tasks that typically require human intelligence.</p>
+                    </div>
+                    <div class="like-commant-share-container px-5 d-flex justify-content-between align-items-center">
+                      <i class="fa-regular fa-heart font-size"></span>
+                        <div class="fa-like">11K</div>
+                      </i>
+                      <i class="fa-regular fa-comment font-size"></span>
+                        <div class="fa-like">543K</div>
+                      </i>
+                      <i class="fa-solid fa-repeat font-size"></span>
+                        <div class="fa-like">2K</div>
+                      </i>
+                      <i class="fa-regular fa-share-from-square font-size"></span>
+                        <div class="fa-like">1K</div>
+                      </i>
+                    </div>
+                  </div>
+                </div>
+                <div class="col-lg-8 col-lg-4 mb-4 pointer">
+                  <div class="card boxs-2 p-3">
+                    <div class="d-flex justify-content-lg-end my-2 ">
+                      <img src="https://img.freepik.com/premium-photo/will-you-join-our-team-group-cheerful-young-people-standing-close-each-other-pointing-you_425904-32938.jpg?w=360" alt="coner-img" class="coner-img mx-2 mb-3">
+                      <h5 class="card-title py-2 mx-2">Tsukasa <strong>(He/She)</strong></h5>
+                     </div>
+                    <img src="https://img.freepik.com/premium-photo/will-you-join-our-team-group-cheerful-young-people-standing-close-each-other-pointing-you_425904-32938.jpg?w=360" width="200" height="300" alt="thms-01"
+                      class="bd-placeholder-img card-img-top">
+                    <div class="card-body mobile-screen">
+                      <h5 class="card-title">The AI Frontier: Exploring the Next Generation of Intelligence</h5>
+                      <p class="card-text">Artificial Intelligence (AI) is a branch of computer science focused on creating
+                        intelligent machines that can simulate human-like behavior. It encompasses various subfields such as
+                        machine learning, neural networks, and natural language processing.</p>
+                    </div>
+                    <div class="like-commant-share-container px-5 d-flex justify-content-between align-items-center">
+                      <i class="fa-regular fa-heart font-size"></span>
+                        <div class="fa-like">11K</div>
+                      </i>
+                      <i class="fa-regular fa-comment font-size"></span>
+                        <div class="fa-like">543K</div>
+                      </i>
+                      <i class="fa-solid fa-repeat font-size"></span>
+                        <div class="fa-like">2K</div>
+                      </i>
+                      <i class="fa-regular fa-share-from-square font-size"></span>
+                        <div class="fa-like">1K</div>
+                      </i>
+                    </div>
+                  </div>
+                </div>
+              </div>
+          
+            </main><!-- main section end -->
+  
+          </div>
+          <!-- after box 2 display none -->
+          <main class="container my-4 py-5 box2-after-box post-content"><!-- main section start -->
+            <div class="row section-container" data-masonry='{"percentPosition": true }'>
+              <div class="col-sm-6 col-lg-4 mb-4 pointer">
+                <div class="card p-3">
+                 <div class="d-flex justify-content-lg-end my-2 ">
+                  <img src="/static/images/rahul-profile-img.png" alt="coner-img" class="coner-img mx-2 mb-3">
+                  <h5 class="card-title py-2 mx-2">Rahul Swami <strong>(He/She)</strong></h5>
+                 </div>
+                  <img src="/static/images/rahul-profile-img.png" width="200" height="200" alt="thms-01"
+                    class="bd-placeholder-img card-img-top">
+                  <div class="card-body mobile-screen">
+                    <p class="card-text">Artificial Intelligence (AI) is a branch of computer science that aims to create
+                      machines capable of intelligent behavior.</p>
+                  </div>
+                  <div class="like-commant-share-container px-5 d-flex justify-content-between align-items-center">
+                    <i class="fa-regular fa-heart font-size"></span>
+                      <div class="fa-like">11K</div>
+                    </i>
+                    <i class="fa-regular fa-comment font-size"></span>
+                      <div class="fa-like">543K</div>
+                    </i>
+                    <i class="fa-solid fa-repeat font-size"></span>
+                      <div class="fa-like">2K</div>
+                    </i>
+                    <i class="fa-regular fa-share-from-square font-size"></span>
+                      <div class="fa-like">1K</div>
+                    </i>
+                  </div>
+                </div>
+              </div>
+              <div class="col-sm-6 col-lg-4 mb-4 pointer">
+                <div class="card p-3">
+                  <div class="d-flex justify-content-lg-end my-2 ">
+                    <img src="https://img.freepik.com/free-photo/young-crazy-man-happy-expression_1194-5236.jpg" alt="coner-img" class="coner-img mx-2 mb-3">
+                    <h5 class="card-title py-2 mx-2">Robert <strong>(He/She)</strong></h5>
+                   </div>
+                  <img src="https://img.freepik.com/free-photo/young-crazy-man-happy-expression_1194-5236.jpg" width="200" height="200" alt="thms-01"
+                    class="bd-placeholder-img card-img-top">
+                  <div class="card-body mobile-screen">
+                    <h5 class="card-title">Navigating the Future: AI in Practice</h5>
+                    <p class="card-text">Artificial Intelligence (AI) is a field of computer science that focuses on creating
+                      machines capable of intelligent behavior.</p>
+                  </div>
+                  <div class="like-commant-share-container px-5 d-flex justify-content-between align-items-center">
+                    <i class="fa-regular fa-heart font-size"></span>
+                      <div class="fa-like">11K</div>
+                    </i>
+                    <i class="fa-regular fa-comment font-size"></span>
+                      <div class="fa-like">543K</div>
+                    </i>
+                    <i class="fa-solid fa-repeat font-size"></span>
+                      <div class="fa-like">2K</div>
+                    </i>
+                    <i class="fa-regular fa-share-from-square font-size"></span>
+                      <div class="fa-like">1K</div>
+                    </i>
+                  </div>
+                </div>
+              </div>
+              <div class="col-sm-6 col-lg-4 mb-4 pointer">
+                <div class="card p-3">
+                  <div class="d-flex justify-content-lg-end my-2 ">
+                    <img src="https://img.freepik.com/free-photo/young-crazy-man-happy-expression_1194-5236.jpg" alt="coner-img" class="coner-img mx-2 mb-3">
+                    <h5 class="card-title py-2 mx-2">Robert <strong>(He/She)</strong></h5>
+                   </div>
+                  <img src="https://img.freepik.com/free-photo/crazy-man-happy-expression_1194-1314.jpg?size=626&ext=jpg&ga=GA1.1.553209589.1713225600&semt=ais" width="200" height="200" alt="thms-01"
+                    class="bd-placeholder-img card-img-top">
+                  <div class="card-body mobile-screen">
+                    <h5 class="card-title">AI: From Theory to Reality</h5>
+                    <p class="card-text">Artificial Intelligence (AI) is a branch of computer science dedicated to creating
+                      systems that can perform tasks requiring human intelligence. It encompasses machine learning, where
+                      algorithms learn from data to make decisions or predictions.</p>
+                  </div>
+                  <div class="like-commant-share-container px-5 d-flex justify-content-between align-items-center">
+                    <i class="fa-regular fa-heart font-size"></span>
+                      <div class="fa-like">11K</div>
+                    </i>
+                    <i class="fa-regular fa-comment font-size"></span>
+                      <div class="fa-like">543K</div>
+                    </i>
+                    <i class="fa-solid fa-repeat font-size"></span>
+                      <div class="fa-like">2K</div>
+                    </i>
+                    <i class="fa-regular fa-share-from-square font-size"></span>
+                      <div class="fa-like">1K</div>
+                    </i>
+                  </div>
+                </div>
+              </div>
+              <div class="col-sm-6 col-lg-4 mb-4 pointer">
+                <div class="card p-3">
+                  <div class="d-flex justify-content-lg-end my-2 ">
+                    <img src="https://img.freepik.com/premium-photo/young-caucasian-man-outdoors-park-focusing-face-framing-symbol_1368-328283.jpg?size=626&ext=jpg&ga=GA1.1.1412446893.1705104000&semt=ais" alt="coner-img" class="coner-img mx-2 mb-3">
+                    <h5 class="card-title py-2 mx-2">Vinod <strong>(He/She)</strong></h5>
+                   </div>
+                  <img src="https://img.freepik.com/premium-photo/young-caucasian-man-outdoors-park-focusing-face-framing-symbol_1368-328283.jpg?size=626&ext=jpg&ga=GA1.1.1412446893.1705104000&semt=ais" width="200" height="200" alt="thms-01"
+                    class="bd-placeholder-img card-img-top">
+                  <div class="card-body mobile-screen">
+                    <h5 class="card-title">AI Unleashed: Transforming Industries</h5>
+                    <p class="card-text">Artificial Intelligence (AI) is a field of computer science focused on developing
+                      machines and systems that can perform tasks requiring human-like intelligence. It includes various
+                      subfields such as machine learning, natural language processing, and computer vision.</p>
+                  </div>
+                  <div class="like-commant-share-container px-5 d-flex justify-content-between align-items-center">
+                    <i class="fa-regular fa-heart font-size"></span>
+                      <div class="fa-like">11K</div>
+                    </i>
+                    <i class="fa-regular fa-comment font-size"></span>
+                      <div class="fa-like">543K</div>
+                    </i>
+                    <i class="fa-solid fa-repeat font-size"></span>
+                      <div class="fa-like">2K</div>
+                    </i>
+                    <i class="fa-regular fa-share-from-square font-size"></span>
+                      <div class="fa-like">1K</div>
+                    </i>
+                  </div>
+                </div>
+              </div>
+              <div class="col-sm-6 col-lg-4 mb-4 pointer">
+                <div class="card p-3">
+                  <div class="d-flex justify-content-lg-end my-2 ">
+                    <img src="https://img.freepik.com/free-photo/happy-cheerful-professional-choosing-you_74855-2843.jpg" alt="coner-img" class="coner-img mx-2 mb-3">
+                    <h5 class="card-title py-2 mx-2">Burlat <strong>(He/She)</strong></h5>
+                   </div>
+                  <img src="https://img.freepik.com/free-photo/happy-cheerful-professional-choosing-you_74855-2843.jpg" width="200" height="200" alt="thms-01"
+                    class="bd-placeholder-img card-img-top">
+                  <div class="card-body mobile-screen">
+                    <h5 class="card-title">The AI Revolution: Impact and Implications</h5>
+                    <p class="card-text">Artificial Intelligence (AI) is the branch of computer science that aims to create
+                      machines capable of intelligent behavior.</p>
+                  </div>
+                  <div class="like-commant-share-container px-5 d-flex justify-content-between align-items-center">
+                    <i class="fa-regular fa-heart font-size"></span>
+                      <div class="fa-like">11K</div>
+                    </i>
+                    <i class="fa-regular fa-comment font-size"></span>
+                      <div class="fa-like">543K</div>
+                    </i>
+                    <i class="fa-solid fa-repeat font-size"></span>
+                      <div class="fa-like">2K</div>
+                    </i>
+                    <i class="fa-regular fa-share-from-square font-size"></span>
+                      <div class="fa-like">1K</div>
+                    </i>
+                  </div>
+                </div>
+              </div>
+              <div class="col-sm-6 col-lg-4 mb-4 pointer">
+                <div class="card p-3">
+                  <div class="d-flex justify-content-lg-end my-2 ">
+                    <img src="https://c8.alamy.com/comp/H27AEB/happy-doctor-putting-his-big-finger-up-H27AEB.jpg" alt="coner-img" class="coner-img mx-2 mb-3">
+                    <h5 class="card-title py-2 mx-2">Sunder <strong>(He/She)</strong></h5>
+                   </div>
+                  <img src="https://c8.alamy.com/comp/H27AEB/happy-doctor-putting-his-big-finger-up-H27AEB.jpg" width="200" height="200" alt="thms-01"
+                    class="bd-placeholder-img card-img-top">
+                  <div class="card-body mobile-screen">
+                    <h5 class="card-title">AI for Tomorrow: Innovations and Ethics</h5>
+                    <p class="card-text">Artificial Intelligence (AI) is a field of computer science focused on developing
+                      systems that can perform tasks that typically require human intelligence. It encompasses machine learning,
+                      which allows machines to learn from data and improve their performance over time.</p>
+                  </div>
+                  <div class="like-commant-share-container px-5 d-flex justify-content-between align-items-center">
+                    <i class="fa-regular fa-heart font-size"></span>
+                      <div class="fa-like">11K</div>
+                    </i>
+                    <i class="fa-regular fa-comment font-size"></span>
+                      <div class="fa-like">543K</div>
+                    </i>
+                    <i class="fa-solid fa-repeat font-size"></span>
+                      <div class="fa-like">2K</div>
+                    </i>
+                    <i class="fa-regular fa-share-from-square font-size"></span>
+                      <div class="fa-like">1K</div>
+                    </i>
+                  </div>
+                </div>
+              </div>
+              <div class="col-sm-6 col-lg-4 mb-4 pointer">
+                <div class="card p-3">
+                  <div class="d-flex justify-content-lg-end my-2 ">
+                    <img src="https://c8.alamy.com/comp/H27AEB/happy-doctor-putting-his-big-finger-up-H27AEB.jpg" alt="coner-img" class="coner-img mx-2 mb-3">
+                    <h5 class="card-title py-2 mx-2">Sunder <strong>(He/She)</strong></h5>
+                   </div>
+                  <img src="https://wallpapers.com/images/featured/random-people-nr23d7xjroka0x1y.jpg" width="200" height="200" alt="thms-01"
+                    class="bd-placeholder-img card-img-top">
+                  <div class="card-body mobile-screen">
+                    <h5 class="card-title">AI at the Crossroads: Challenges and Opportunities</h5>
+                    <p class="card-text">Artificial Intelligence (AI) is a rapidly evolving field of computer science that seeks
+                      to develop machines capable of performing tasks that typically require human intelligence.</p>
+                  </div>
+                  <div class="like-commant-share-container px-5 d-flex justify-content-between align-items-center">
+                    <i class="fa-regular fa-heart font-size"></span>
+                      <div class="fa-like">11K</div>
+                    </i>
+                    <i class="fa-regular fa-comment font-size"></span>
+                      <div class="fa-like">543K</div>
+                    </i>
+                    <i class="fa-solid fa-repeat font-size"></span>
+                      <div class="fa-like">2K</div>
+                    </i>
+                    <i class="fa-regular fa-share-from-square font-size"></span>
+                      <div class="fa-like">1K</div>
+                    </i>
+                  </div>
+                </div>
+              </div>
+              <div class="col-sm-6 col-lg-4 mb-4 pointer">
+                <div class="card p-3">
+                  <div class="d-flex justify-content-lg-end my-2 ">
+                    <img src="https://img.freepik.com/premium-photo/will-you-join-our-team-group-cheerful-young-people-standing-close-each-other-pointing-you_425904-32938.jpg?w=360" alt="coner-img" class="coner-img mx-2 mb-3">
+                    <h5 class="card-title py-2 mx-2">Tsukasa <strong>(He/She)</strong></h5>
+                   </div>
+                  <img src="https://img.freepik.com/premium-photo/will-you-join-our-team-group-cheerful-young-people-standing-close-each-other-pointing-you_425904-32938.jpg?w=360" width="200" height="200" alt="thms-01"
+                    class="bd-placeholder-img card-img-top">
+                  <div class="card-body mobile-screen">
+                    <h5 class="card-title">The AI Frontier: Exploring the Next Generation of Intelligence</h5>
+                    <p class="card-text">Artificial Intelligence (AI) is a branch of computer science focused on creating
+                      intelligent machines that can simulate human-like behavior. It encompasses various subfields such as
+                      machine learning, neural networks, and natural language processing.</p>
+                  </div>
+                  <div class="like-commant-share-container px-5 d-flex justify-content-between align-items-center">
+                    <i class="fa-regular fa-heart font-size"></span>
+                      <div class="fa-like">11K</div>
+                    </i>
+                    <i class="fa-regular fa-comment font-size"></span>
+                      <div class="fa-like">543K</div>
+                    </i>
+                    <i class="fa-solid fa-repeat font-size"></span>
+                      <div class="fa-like">2K</div>
+                    </i>
+                    <i class="fa-regular fa-share-from-square font-size"></span>
+                      <div class="fa-like">1K</div>
+                    </i>
+                  </div>
+                </div>
+              </div>
+            </div>
+        
+          </main><!-- main section end -->
+
+          <div class="box3 my-5">
+            <div class="right-div py-5">
+              <h1 class="mx-3 position-fixed text-bg-light messages px-2">Messages</h1>
+              <div class="chat-box ">
+                <div class="person-chat text-bg-light" data-bs-toggle="modal" data-bs-target="#staticBackdrop"><!--person chat div start-->
+                  <img src="/static/images/rahul-profile-img.png" alt="messages" class="person-img">
+                  <div class="user-chat-details">
+                    <div><b>Rahul Swami</b></div>
+                    <p><b>Sent a message by rahulswami_ 30m</b></p>
+                  </div>
+                  <span class="green-tick">.</span>
+                  <div class="cam-icon">
+                    <i class="fa-solid fa-camera"></i>
+                  </div>
+                 
+
+                
+
+                </div><!--person chat div end-->
+
+                <div class="person-chat text-bg-light"><!--person chat div start-->
+                  <img src="https://pics.craiyon.com/2023-09-18/354853b46dfa47ad8b61404148265890.webp" alt="messages" class="person-img">
+                  <div class="user-chat-details">
+                    <div><b>Miya Mora</b></div>
+                    <p><b>Sent a message by miyamora_ 30m</b></p>
+                  </div>
+                  <span class="green-tick">.</span>
+                  <div class="cam-icon">
+                    <i class="fa-solid fa-camera"></i>
+                  </div>
+                </div><!--person chat div end-->
+
+                <div class="person-chat text-bg-light"><!--person chat div start-->
+                  <img src="https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcQOPBJzcms-2HibYnua0ghf-br6Jo4VozuRoXFOGbngPewNfU7i3EPzUN2cXkJFbbArN6g&usqp=CAU" alt="messages" class="person-img">
+                  <div class="user-chat-details">
+                    <div><b>kyouko</b></div>
+                    <p><b>Sent a message by kyouko_ 30m</b></p>
+                  </div>
+                  <span class="green-tick">.</span>
+                  <div class="cam-icon">
+                    <i class="fa-solid fa-camera"></i>
+                  </div>
+                </div><!--person chat div end-->
+
+                <div class="person-chat text-bg-light"><!--person chat div start-->
+                  <img src="https://preview.redd.it/sgau39u569o91.jpg?width=640&crop=smart&auto=webp&s=22173154597f8f0f4b169c1815d447106c5ffa69" alt="messages" class="person-img">
+                  <div class="user-chat-details">
+                    <div><b>Hinata</b></div>
+                    <p><b>Sent a message by Hinata_ 30m</b></p>
+                  </div>
+                  <span class="green-tick">.</span>
+                  <div class="cam-icon">
+                    <i class="fa-solid fa-camera"></i>
+                  </div>
+                </div><!--person chat div end-->
+
+                <div class="person-chat text-bg-light"><!--person chat div start-->
+                  <img src="https://i.pinimg.com/736x/f8/9d/39/f89d39e65b2fa2ec045b320993afe51d.jpg" alt="messages" class="person-img">
+                  <div class="user-chat-details">
+                    <div><b>Rebika</b></div>
+                    <p><b>Sent a message by Rebika_ 30m</b></p>
+                  </div>
+                  <span class="green-tick">.</span>
+                  <div class="cam-icon">
+                    <i class="fa-solid fa-camera"></i>
+                  </div>
+                </div><!--person chat div end-->
+
+                <div class="person-chat text-bg-light"><!--person chat div start-->
+                  <img src="https://i.pinimg.com/736x/47/3b/bb/473bbb3378cc3244159cffa4f01d585c.jpg" alt="messages" class="person-img">
+                  <div class="user-chat-details">
+                    <div><b>tomo</b></div>
+                    <p><b>Sent a message by tomo_ 30m</b></p>
+                  </div>
+                  <span class="green-tick">.</span>
+                  <div class="cam-icon">
+                    <i class="fa-solid fa-camera"></i>
+                  </div>
+                </div><!--person chat div end-->
+
+                <div class="person-chat text-bg-light"><!--person chat div start-->
+                  <img src="https://i.pinimg.com/736x/ba/8a/46/ba8a46fcdccd0880bb75f663a7109703.jpg" alt="messages" class="person-img">
+                  <div class="user-chat-details">
+                    <div><b>horimiya</b></div>
+                    <p><b>Sent a message by horimiya_ 30m</b></p>
+                  </div>
+                  <span class="green-tick">.</span>
+                  <div class="cam-icon">
+                    <i class="fa-solid fa-camera"></i>
+                  </div>
+                </div><!--person chat div end-->
+
+                <div class="person-chat text-bg-light"><!--person chat div start-->
+                  <img src="https://i.pinimg.com/736x/33/a6/2f/33a62f570268575896635250f893f84d.jpg" alt="messages" class="person-img">
+                  <div class="user-chat-details">
+                    <div><b>kaori</b></div>
+                    <p><b>Sent a message by kaori_ 30m</b></p>
+                  </div>
+                  <span class="green-tick">.</span>
+                  <div class="cam-icon">
+                    <i class="fa-solid fa-camera"></i>
+                  </div>
+                </div><!--person chat div end-->
+
+                <div class="person-chat text-bg-light"><!--person chat div start-->
+                  <img src="https://i.pinimg.com/736x/57/0e/88/570e88630497172421847f3c9a08fa29.jpg" alt="messages" class="person-img">
+                  <div class="user-chat-details">
+                    <div><b>sakura</b></div>
+                    <p><b>Sent a message by sakura 30m</b></p>
+                  </div>
+                  <span class="green-tick">.</span>
+                  <div class="cam-icon">
+                    <i class="fa-solid fa-camera"></i>
+                  </div>
+                </div><!--person chat div end-->
+
+                <div class="person-chat text-bg-light"><!--person chat div start-->
+                  <img src="https://i.pinimg.com/564x/91/80/a4/9180a4bb0dad34fd65ad51d846a57b76.jpg" alt="messages" class="person-img">
+                  <div class="user-chat-details">
+                    <div><b>shizuka</b></div>
+                    <p><b>Sent a message by shizuka 30m</b></p>
+                  </div>
+                  <span class="green-tick">.</span>
+                  <div class="cam-icon">
+                    <i class="fa-solid fa-camera"></i>
+                  </div>
+                </div><!--person chat div end-->
+
+                <div class="person-chat text-bg-light"><!--person chat div start-->
+                  <img src="https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcTznxxNTJ-yMTIrbY6bv06xTWVX8FLhs7SdSQor6Su8q7j0am8M1M6HogXI4sdrVgSoFqw&usqp=CAU" alt="messages" class="person-img">
+                  <div class="user-chat-details">
+                    <div><b>ino</b></div>
+                    <p><b>Sent a message by ino_ 30m</b></p>
+                  </div>
+                  <span class="green-tick">.</span>
+                  <div class="cam-icon">
+                    <i class="fa-solid fa-camera"></i>
+                  </div>
+                </div><!--person chat div end-->
+
+                <div class="person-chat text-bg-light"><!--person chat div start-->
+                  <img src="https://pics.craiyon.com/2024-02-19/BZugiT24Q-qSURoMyHwEQg.webp" alt="messages" class="person-img">
+                  <div class="user-chat-details">
+                    <div><b>khushina</b></div>
+                    <p><b>Sent a message by khushina_ 30m</b></p>
+                  </div>
+                  <span class="green-tick">.</span>
+                  <div class="cam-icon">
+                    <i class="fa-solid fa-camera"></i>
+                  </div>
+                </div><!--person chat div end-->
+
+                <div class="person-chat text-bg-light"><!--person chat div start-->
+                  <img src="https://pics.craiyon.com/2023-07-16/81f48e078ecc455cab69a416bb4e7370.webp" alt="messages" class="person-img">
+                  <div class="user-chat-details">
+                    <div><b>akane</b></div>
+                    <p><b>Sent a message by akane_ 30m</b></p>
+                  </div>
+                  <span class="green-tick">.</span>
+                  <div class="cam-icon">
+                    <i class="fa-solid fa-camera"></i>
+                  </div>
+                </div><!--person chat div end-->
+
+                <div class="person-chat text-bg-light"><!--person chat div start-->
+                  <img src="https://pics.craiyon.com/2023-07-16/bd764d267a6f4788bd215a03ae00a44b.webp" alt="messages" class="person-img">
+                  <div class="user-chat-details">
+                    <div><b>shasori</b></div>
+                    <p><b>Sent a message by shasori_ 30m</b></p>
+                  </div>
+                  <span class="green-tick">.</span>
+                  <div class="cam-icon">
+                    <i class="fa-solid fa-camera"></i>
+                  </div>
+                </div><!--person chat div end-->
+
+                <div class="person-chat text-bg-light"><!--person chat div start-->
+                  <img src="https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcTainNysBBjdUv_WwhrrQ-gBRZcFzADCJYaGl8nWcDrmVYci2iWr2LTAAl0ur_p4Ekem4Y&usqp=CAU" alt="messages" class="person-img">
+                  <div class="user-chat-details">
+                    <div><b>rose</b></div>
+                    <p><b>Sent a message by rose_ 30m</b></p>
+                  </div>
+                  <span class="green-tick">.</span>
+                  <div class="cam-icon">
+                    <i class="fa-solid fa-camera"></i>
+                  </div>
+                </div><!--person chat div end-->
+              </div>
+            </div>
+          </div>
+
+          <div class="box4">
+            <div class="box-btn">
+              <h1 class="mb-5">Features</h1>
+              <button class="btn btn-primary media-btn">Videos</button>
+              <button class="btn btn-success media-btn">Reels</button>
+              <button class="btn btn-info media-btn">News</button>
+              <button class="btn btn-danger media-btn">Games</button>
+            </div>
+          </div>
+        </div>
+
+      </div>
+
+    </main>
+  </div>
+  <!-- modal code start for chat box working chat only  -->
+    <!-- Modal -->
+    <div class="modal fade" id="staticBackdrop" data-bs-backdrop="static" data-bs-keyboard="false"
+    tabindex="-1" aria-labelledby="staticBackdropLabel" aria-hidden="true">
+    <div class="modal-dialog">
+      <div class="modal-content">
+        <div class="modal-header">
+          <img src="/static/images/rahul-profile-img.png" alt="rahul-profile" class="person-img">
+          <h1 class="modal-title fs-5 mx-3" id="staticBackdropLabel">Rahul Swami</h1>
+          
+          <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+          <span class="green-tick mx-3">.</span>
+          <div class="cam-icon">
+            <i class="fa-solid fa-camera"></i>
+          </div>
+        </div>
+        <div class="modal-body">
+          <div class="rahul-chat">
+            <div class="chat-container">
+              <span>You...</span>
+              <div class="start-chat border"><p class="py-2 px-2 you" id="you"></p></div>
+              <span>Rahul Swami...</span>
+              <div class="start-chat border"><p class="py-2 px-2 she" id="she"></p></div>
+            </div>
+            <div class="message-box rounded-3">
+              <div class="d-flex justify-content-between">
+                <input type="text" placeholder="Sent a message" name="messages" class="form-control message-form" id="message-form">
+                <button class="btn btn-primary sent-btn" type="button" id="sent-btn"><i class="fa-solid fa-arrow-up-from-bracket"></i></button>
+              </div>
+            </div>
+          </div>
+        </div>
+        <div class="modal-footer">
+          <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">Close</button>
+          <button type="button" class="btn btn-primary">Save Chat</button>
+        </div>
+      </div>
+    </div>
+  </div>
+  <!-- modal code end for chat box working chat only  -->
+
+  <!-- modal code start for feature button working chat only  -->
+<!-- Modal -->
+<div class="modal fade" id="staticBackdrop2" data-bs-backdrop="static" data-bs-keyboard="false" tabindex="-1" aria-labelledby="staticBackdropLabel" aria-hidden="true">
+  <div class="modal-dialog">
+    <div class="modal-content">
+      <div class="modal-header">
+        <h1 class="modal-title fs-5" id="staticBackdropLabel">Messages</h1>
+        <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+      </div>
+      <div class="modal-body">
+        <div class="right-div py-5">
+          <div class="chat-box">
+            <div class="person-chat-modal text-bg-light" data-bs-toggle="modal" data-bs-target="#staticBackdrop"><!--person chat div start-->
+              <img src="/static/images/rahul-profile-img.png" alt="messages" class="person-img">
+              <div class="user-chat-details">
+                <div><b>Rahul Swami</b></div>
+                <p><b>rahulswami_ 30m</b></p>
+              </div>
+              <span class="mx-2"></span>
+              <span class="green-tick">.</span>
+              <div class="cam-icon">
+                <i class="fa-solid fa-camera"></i>
+              </div>
+            </div><!--person chat div end-->
+
+            <div class="person-chat-modal text-bg-light"><!--person chat div start-->
+              <img src="https://pics.craiyon.com/2023-09-18/354853b46dfa47ad8b61404148265890.webp" alt="messages" class="person-img">
+              <div class="user-chat-details">
+                <div><b>Miya Mora</b></div>
+                <p><b>miyamora_ 30m</b></p>
+              </div>
+              <span class="mx-2"></span>
+              <span class="green-tick">.</span>
+              <div class="cam-icon">
+                <i class="fa-solid fa-camera"></i>
+              </div>
+            </div><!--person chat div end-->
+
+            <div class="person-chat-modal text-bg-light"><!--person chat div start-->
+              <img src="https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcQOPBJzcms-2HibYnua0ghf-br6Jo4VozuRoXFOGbngPewNfU7i3EPzUN2cXkJFbbArN6g&usqp=CAU" alt="messages" class="person-img">
+              <div class="user-chat-details">
+                <div><b>kyouko</b></div>
+                <p><b>kyouko_ 30m</b></p>
+              </div>
+              <span class="mx-2"></span>
+              <span class="green-tick">.</span>
+              <div class="cam-icon">
+                <i class="fa-solid fa-camera"></i>
+              </div>
+            </div><!--person chat div end-->
+
+            <div class="person-chat-modal text-bg-light"><!--person chat div start-->
+              <img src="https://preview.redd.it/sgau39u569o91.jpg?width=640&crop=smart&auto=webp&s=22173154597f8f0f4b169c1815d447106c5ffa69" alt="messages" class="person-img">
+              <div class="user-chat-details">
+                <div><b>Hinata</b></div>
+                <p><b>Hinata_ 30m</b></p>
+              </div>
+              <span class="mx-2"></span>
+              <span class="green-tick">.</span>
+              <div class="cam-icon">
+                <i class="fa-solid fa-camera"></i>
+              </div>
+            </div><!--person chat div end-->
+
+            <div class="person-chat-modal text-bg-light"><!--person chat div start-->
+              <img src="https://i.pinimg.com/736x/f8/9d/39/f89d39e65b2fa2ec045b320993afe51d.jpg" alt="messages" class="person-img">
+              <div class="user-chat-details">
+                <div><b>Rebika</b></div>
+                <p><b>Rebika_ 30m</b></p>
+              </div>
+              <span class="mx-2"></span>
+              <span class="green-tick">.</span>
+              <div class="cam-icon">
+                <i class="fa-solid fa-camera"></i>
+              </div>
+            </div><!--person chat div end-->
+
+            <div class="person-chat-modal text-bg-light"><!--person chat div start-->
+              <img src="https://i.pinimg.com/736x/47/3b/bb/473bbb3378cc3244159cffa4f01d585c.jpg" alt="messages" class="person-img">
+              <div class="user-chat-details">
+                <div><b>tomo</b></div>
+                <p><b>tomo_ 30m</b></p>
+              </div>
+              <span class="mx-2"></span>
+              <span class="green-tick">.</span>
+              <div class="cam-icon">
+                <i class="fa-solid fa-camera"></i>
+              </div>
+            </div><!--person chat div end-->
+
+            <div class="person-chat-modal text-bg-light"><!--person chat div start-->
+              <img src="https://i.pinimg.com/736x/ba/8a/46/ba8a46fcdccd0880bb75f663a7109703.jpg" alt="messages" class="person-img">
+              <div class="user-chat-details">
+                <div><b>horimiya</b></div>
+                <p><b>horimiya_ 30m</b></p>
+              </div>
+              <span class="mx-2"></span>
+              <span class="green-tick">.</span>
+              <div class="cam-icon">
+                <i class="fa-solid fa-camera"></i>
+              </div>
+            </div><!--person chat div end-->
+
+            <div class="person-chat-modal text-bg-light"><!--person chat div start-->
+              <img src="https://i.pinimg.com/736x/33/a6/2f/33a62f570268575896635250f893f84d.jpg" alt="messages" class="person-img">
+              <div class="user-chat-details">
+                <div><b>kaori</b></div>
+                <p><b>kaori_ 30m</b></p>
+              </div>
+              <span class="mx-2"></span>
+              <span class="green-tick">.</span>
+              <div class="cam-icon">
+                <i class="fa-solid fa-camera"></i>
+              </div>
+            </div><!--person chat div end-->
+
+            <div class="person-chat-modal text-bg-light"><!--person chat div start-->
+              <img src="https://i.pinimg.com/736x/57/0e/88/570e88630497172421847f3c9a08fa29.jpg" alt="messages" class="person-img">
+              <div class="user-chat-details">
+                <div><b>sakura</b></div>
+                <p><b>sakura 30m</b></p>
+              </div>
+              <span class="mx-2"></span>
+              <span class="green-tick">.</span>
+              <div class="cam-icon">
+                <i class="fa-solid fa-camera"></i>
+              </div>
+            </div><!--person chat div end-->
+
+            <div class="person-chat-modal text-bg-light"><!--person chat div start-->
+              <img src="https://i.pinimg.com/564x/91/80/a4/9180a4bb0dad34fd65ad51d846a57b76.jpg" alt="messages" class="person-img">
+              <div class="user-chat-details">
+                <div><b>shizuka</b></div>
+                <p><b>shizuka 30m</b></p>
+              </div>
+              <span class="mx-2"></span>
+              <span class="green-tick">.</span>
+              <div class="cam-icon">
+                <i class="fa-solid fa-camera"></i>
+              </div>
+            </div><!--person chat div end-->
+
+            <div class="person-chat-modal text-bg-light"><!--person chat div start-->
+              <img src="https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcTznxxNTJ-yMTIrbY6bv06xTWVX8FLhs7SdSQor6Su8q7j0am8M1M6HogXI4sdrVgSoFqw&usqp=CAU" alt="messages" class="person-img">
+              <div class="user-chat-details">
+                <div><b>ino</b></div>
+                <p><b>ino_ 30m</b></p>
+              </div>
+              <span class="mx-2"></span>
+              <span class="green-tick">.</span>
+              <div class="cam-icon">
+                <i class="fa-solid fa-camera"></i>
+              </div>
+            </div><!--person chat div end-->
+
+            <div class="person-chat-modal text-bg-light"><!--person chat div start-->
+              <img src="https://pics.craiyon.com/2024-02-19/BZugiT24Q-qSURoMyHwEQg.webp" alt="messages" class="person-img">
+              <div class="user-chat-details">
+                <div><b>khushina</b></div>
+                <p><b>khushina_ 30m</b></p>
+              </div>
+              <span class="mx-2"></span>
+              <span class="green-tick">.</span>
+              <div class="cam-icon">
+                <i class="fa-solid fa-camera"></i>
+              </div>
+            </div><!--person chat div end-->
+
+            <div class="person-chat-modal text-bg-light"><!--person chat div start-->
+              <img src="https://pics.craiyon.com/2023-07-16/81f48e078ecc455cab69a416bb4e7370.webp" alt="messages" class="person-img">
+              <div class="user-chat-details">
+                <div><b>akane</b></div>
+                <p><b>akane_ 30m</b></p>
+              </div>
+              <span class="mx-2"></span>
+              <span class="green-tick">.</span>
+              <div class="cam-icon">
+                <i class="fa-solid fa-camera"></i>
+              </div>
+            </div><!--person chat div end-->
+
+            <div class="person-chat-modal text-bg-light"><!--person chat div start-->
+              <img src="https://pics.craiyon.com/2023-07-16/bd764d267a6f4788bd215a03ae00a44b.webp" alt="messages" class="person-img">
+              <div class="user-chat-details">
+                <div><b>shasori</b></div>
+                <p><b>shasori_ 30m</b></p>
+              </div>
+              <span class="mx-2"></span>
+              <span class="green-tick">.</span>
+              <div class="cam-icon">
+                <i class="fa-solid fa-camera"></i>
+              </div>
+            </div><!--person chat div end-->
+
+            <div class="person-chat-modal text-bg-light"><!--person chat div start-->
+              <img src="https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcTainNysBBjdUv_WwhrrQ-gBRZcFzADCJYaGl8nWcDrmVYci2iWr2LTAAl0ur_p4Ekem4Y&usqp=CAU" alt="messages" class="person-img">
+              <div class="user-chat-details">
+                <div><b>rose</b></div>
+                <p><b>rose_ 30m</b></p>
+              </div>
+              <span class="mx-2"></span>
+              <span class="green-tick">.</span>
+              <div class="cam-icon">
+                <i class="fa-solid fa-camera"></i>
+              </div>
+            </div><!--person chat div end-->
+          </div>
+        </div>
+      </div>
+      <div class="modal-footer">
+        <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">Close</button>
+      </div>
+    </div>
+  </div>
+</div>
+
+  <!-- modal code ehd for feature button working chat only  -->
+
+  <!-- modal code start for profile details -->
+
+<div class="modal fade" id="staticBackdrop3" data-bs-backdrop="static" data-bs-keyboard="false" tabindex="-1" aria-labelledby="staticBackdropLabel" aria-hidden="true">
+  <div class="modal-dialog">
+    <div class="modal-content">
+      <div class="modal-header">
+        <h1 class="modal-title fs-5" id="staticBackdropLabel">Rahul Swami</h1>
+        <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+      </div>
+      <div class="modal-body">
+
+        <div class="profile-container mx-2">
+          <div class="set-profile">
+            <img src="/static/images/rahul-profile-img.png" alt="profile">
+          </div>
+          <div class="set-username">
+            <h3>rahullswami_</h3>
+          </div>
+          <div class="set-follow-following">
+            <div class="count-follow">
+              <div class="mx-3">1</div>
+              <div>posts</div>
+            </div>
+            <div class="count-follow">
+              <div class="mx-4">237</div>
+              <div>followers</div>
+            </div>
+            <div class="count-follow">
+              <div class="mx-4">127</div>
+              <div>following</div>
+            </div>
+          </div>
+          <div class="set-bio">
+            <p class="text">Lorem ipsum dolor sit amet consectetur adipisicing elit. Consequuntur at adipisci, suscipit voluptatem eos totam vero repudiandae deleniti, aspernatur cupiditate, expedita enim ullam accusantium impedit ducimus qui unde nihil necessitatibus.</p>
+          </div>
+          <div class="set-posts">
+            <div class="posts border py-2 px-2 rounded-3">
+              <img src="/static/images/rahul-profile-img.png" alt="post">
+            </div>
+          </div>
+        </div>
+
+      </div>
+      <div class="modal-footer">
+        <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">Close</button>
+        <button type="button" class="btn btn-danger">Edit</button>
+      </div>
+    </div>
+  </div>
+</div>
+
+
+
+
+  <script>
+    const sent_btn = document.querySelector("#sent-btn");
+        const message_input = document.querySelector("#message-form");
+        const you = document.querySelector("#you");
+        const she = document.querySelector("#she");
+
+        sent_btn.addEventListener("click", () => {
+            const message = message_input.value;
+            console.log("Message input value:", message);  // Debugging
+
+            you.innerHTML = message;
+            she.innerHTML = "";  // Clear previous response
+
+            let sheReply = "say something bro";  // Default reply
+
+            if (message === "Hello") {
+                sheReply = "hello bro";
+            } else if (message === "how are you") {
+                sheReply = "i am fine and you";
+            } else if (message === "i am also fine") {
+                sheReply = "what are you doing now";
+            } else if (message === "nothing") {
+                sheReply = "okey byy";
+            }
+
+            setTimeout(() => {
+                she.innerHTML = sheReply;
+            }, 5000);  // Delay response by 1000 milliseconds (1 second)
+
+            message_input.value = "";  // Clear the input field after sending the message
+        });
+</script>
+
+  <script src="/static/javascript/index.js"></script>
+  <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/js/bootstrap.bundle.min.js"
+    integrity="sha384-YvpcrYf0tY3lHB60NNkmXc5s9fDVZLESaAA55NDzOxhy9GkcIdslK1eN7N6jIeHz"
+    crossorigin="anonymous"></script>
+</body>
+
+</html>
